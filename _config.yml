@@ -1,7 +1,7 @@
 # Site settings
 title: FilipinoHub
 description: Filipino-focused news, entertainment, stories, and content
-url: "https://yourusername.github.io"
+url: "https://filipinohub.github.io"
 baseurl: "/FilipinoHub"
 
 # Build settings
