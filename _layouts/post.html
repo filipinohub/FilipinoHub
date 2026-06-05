@@ -1,0 +1,81 @@
+---
+layout: default
+---
+
+<article class="post-article">
+    <header class="post-header">
+        <div class="post-meta">
+            <span class="post-category">
+                <a href="{{ '/' | append: page.category | append: '/' | relative_url }}">{{ page.category | replace: '-', ' ' | capitalize }}</a>
+                {% if page.subcategory %}
+                / <a href="{{ '/' | append: page.category | append: '/' | append: page.subcategory | append: '/' | relative_url }}">{{ page.subcategory | replace: '-', ' ' | capitalize }}</a>
+                {% endif %}
+            </span>
+            <span class="post-date">{{ page.date | date: "%B %d, %Y" }}</span>
+        </div>
+        <h1 class="post-title">{{ page.title }}</h1>
+        {% if page.author %}
+        <div class="post-author">By {{ page.author }}</div>
+        {% endif %}
+    </header>
+
+    <!-- Ad Placeholder: Below Title -->
+    <div class="ad-banner ad-below-title">
+        <div class="ad-placeholder">Advertisement - 728x90</div>
+    </div>
+
+    {% if page.image %}
+    <div class="post-featured-image">
+        <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+    </div>
+    {% endif %}
+
+    <div class="post-content">
+        {{ content }}
+    </div>
+
+    <!-- Ad Placeholder: In-Content -->
+    <div class="ad-banner ad-in-content">
+        <div class="ad-placeholder">Advertisement - 336x280</div>
+    </div>
+
+    <footer class="post-footer">
+        <div class="post-tags">
+            {% if page.category %}
+            <span class="tag">{{ page.category | replace: '-', ' ' | capitalize }}</span>
+            {% endif %}
+            {% if page.subcategory %}
+            <span class="tag">{{ page.subcategory | replace: '-', ' ' | capitalize }}</span>
+            {% endif %}
+        </div>
+        <div class="post-share">
+            <span>Share:</span>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url }}" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url }}&text={{ page.title }}" target="_blank" rel="noopener">Twitter</a>
+        </div>
+    </footer>
+
+    <!-- Related Articles -->
+    <section class="related-posts">
+        <h2>Related Articles</h2>
+        <div class="post-grid">
+            {% assign related_posts = site.posts | where: "category", page.category | limit: 3 %}
+            {% for post in related_posts %}
+                {% if post.url != page.url %}
+                <article class="post-card">
+                    {% if post.image %}
+                    <a href="{{ post.url | relative_url }}" class="post-card-image">
+                        <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+                    </a>
+                    {% endif %}
+                    <div class="post-card-content">
+                        <span class="post-card-category">{{ post.category | replace: '-', ' ' | capitalize }}</span>
+                        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+                        <span class="post-card-date">{{ post.date | date: "%B %d, %Y" }}</span>
+                    </div>
+                </article>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+</article>

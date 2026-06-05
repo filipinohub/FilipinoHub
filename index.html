@@ -1,0 +1,166 @@
+---
+layout: default
+title: Home
+---
+
+<section class="hero-section">
+    <h2>Latest News & Stories</h2>
+    <div class="search-box">
+        <input type="text" id="search-input" placeholder="Search articles...">
+        <button id="search-button">Search</button>
+    </div>
+</section>
+
+<!-- Featured Article -->
+{% assign featured_post = site.posts.first %}
+{% if featured_post %}
+<section class="featured-section">
+    <h2>Featured Article</h2>
+    <article class="featured-article">
+        {% if featured_post.image %}
+        <a href="{{ featured_post.url | relative_url }}" class="featured-image">
+            <img src="{{ featured_post.image | relative_url }}" alt="{{ featured_post.title }}">
+        </a>
+        {% endif %}
+        <div class="featured-content">
+            <span class="featured-category">{{ featured_post.category | replace: '-', ' ' | capitalize }}</span>
+            <h3><a href="{{ featured_post.url | relative_url }}">{{ featured_post.title }}</a></h3>
+            <p class="featured-excerpt">{{ featured_post.excerpt | strip_html | truncatewords: 30 }}</p>
+            <div class="featured-meta">
+                <span class="featured-date">{{ featured_post.date | date: "%B %d, %Y" }}</span>
+                <a href="{{ featured_post.url | relative_url }}" class="read-more">Read More →</a>
+            </div>
+        </div>
+    </article>
+</section>
+{% endif %}
+
+<!-- Latest Posts -->
+<section class="latest-posts">
+    <h2>Latest Articles</h2>
+    <div class="post-grid">
+        {% for post in site.posts limit:6 %}
+        <article class="post-card">
+            {% if post.image %}
+            <a href="{{ post.url | relative_url }}" class="post-card-image">
+                <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+            </a>
+            {% endif %}
+            <div class="post-card-content">
+                <span class="post-card-category">{{ post.category | replace: '-', ' ' | capitalize }}</span>
+                <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+                <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+                <span class="post-card-date">{{ post.date | date: "%B %d, %Y" }}</span>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Category Sections -->
+<section class="category-sections">
+    <!-- Local News -->
+    <div class="category-section">
+        <div class="category-header">
+            <h2>Local News</h2>
+            <a href="{{ '/local-news/' | relative_url }}" class="view-all">View All →</a>
+        </div>
+        <div class="post-grid">
+            {% assign local_posts = site.posts | where: "category", "local-news" | limit: 3 %}
+            {% for post in local_posts %}
+            <article class="post-card">
+                {% if post.image %}
+                <a href="{{ post.url | relative_url }}" class="post-card-image">
+                    <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+                </a>
+                {% endif %}
+                <div class="post-card-content">
+                    <span class="post-card-category">{{ post.subcategory | replace: '-', ' ' | capitalize }}</span>
+                    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+                    <span class="post-card-date">{{ post.date | date: "%B %d, %Y" }}</span>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Entertainment -->
+    <div class="category-section">
+        <div class="category-header">
+            <h2>Entertainment</h2>
+            <a href="{{ '/entertainment/' | relative_url }}" class="view-all">View All →</a>
+        </div>
+        <div class="post-grid">
+            {% assign entertainment_posts = site.posts | where: "category", "entertainment" | limit: 3 %}
+            {% for post in entertainment_posts %}
+            <article class="post-card">
+                {% if post.image %}
+                <a href="{{ post.url | relative_url }}" class="post-card-image">
+                    <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+                </a>
+                {% endif %}
+                <div class="post-card-content">
+                    <span class="post-card-category">{{ post.subcategory | replace: '-', ' ' | capitalize }}</span>
+                    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+                    <span class="post-card-date">{{ post.date | date: "%B %d, %Y" }}</span>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Sports -->
+    <div class="category-section">
+        <div class="category-header">
+            <h2>Sports</h2>
+            <a href="{{ '/sports/' | relative_url }}" class="view-all">View All →</a>
+        </div>
+        <div class="post-grid">
+            {% assign sports_posts = site.posts | where: "category", "sports" | limit: 3 %}
+            {% for post in sports_posts %}
+            <article class="post-card">
+                {% if post.image %}
+                <a href="{{ post.url | relative_url }}" class="post-card-image">
+                    <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+                </a>
+                {% endif %}
+                <div class="post-card-content">
+                    <span class="post-card-category">{{ post.subcategory | replace: '-', ' ' | capitalize }}</span>
+                    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+                    <span class="post-card-date">{{ post.date | date: "%B %d, %Y" }}</span>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Stories -->
+    <div class="category-section">
+        <div class="category-header">
+            <h2>Stories</h2>
+            <a href="{{ '/stories/' | relative_url }}" class="view-all">View All →</a>
+        </div>
+        <div class="post-grid">
+            {% assign stories_posts = site.posts | where: "category", "stories" | limit: 3 %}
+            {% for post in stories_posts %}
+            <article class="post-card">
+                {% if post.image %}
+                <a href="{{ post.url | relative_url }}" class="post-card-image">
+                    <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+                </a>
+                {% endif %}
+                <div class="post-card-content">
+                    <span class="post-card-category">{{ post.subcategory | replace: '-', ' ' | capitalize }}</span>
+                    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+                    <span class="post-card-date">{{ post.date | date: "%B %d, %Y" }}</span>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<div id="search-results" class="search-results" style="display: none;">
+    <h2>Search Results</h2>
+    <div id="results-container"></div>
+</div>

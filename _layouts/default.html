@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+    {% seo %}
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="site-logo"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="{{ '/' | relative_url }}">Home</a></li>
+                    <li><a href="{{ '/local-news/' | relative_url }}">Local News</a></li>
+                    <li><a href="{{ '/world-news/' | relative_url }}">World News</a></li>
+                    <li><a href="{{ '/entertainment/' | relative_url }}">Entertainment</a></li>
+                    <li><a href="{{ '/sports/' | relative_url }}">Sports</a></li>
+                    <li><a href="{{ '/lifestyle/' | relative_url }}">Lifestyle</a></li>
+                    <li><a href="{{ '/stories/' | relative_url }}">Stories</a></li>
+                    <li><a href="{{ '/editorial/' | relative_url }}">Editorial</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Ad Placeholder: Top Banner -->
+    <div class="ad-banner ad-top">
+        <div class="container">
+            <div class="ad-placeholder">Advertisement - 728x90</div>
+        </div>
+    </div>
+
+    <main class="site-content">
+        <div class="container">
+            {{ content }}
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>{{ site.title }}</h3>
+                    <p>{{ site.description }}</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="{{ '/about.html' | relative_url }}">About</a></li>
+                        <li><a href="{{ '/contact.html' | relative_url }}">Contact</a></li>
+                        <li><a href="{{ '/privacy.html' | relative_url }}">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="{{ '/local-news/' | relative_url }}">Local News</a></li>
+                        <li><a href="{{ '/entertainment/' | relative_url }}">Entertainment</a></li>
+                        <li><a href="{{ '/sports/' | relative_url }}">Sports</a></li>
+                        <li><a href="{{ '/stories/' | relative_url }}">Stories</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ '/js/main.js' | relative_url }}"></script>
+</body>
+</html>

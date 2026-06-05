@@ -1,0 +1,85 @@
+# Site settings
+title: FilipinoHub
+description: Filipino-focused news, entertainment, stories, and content
+url: "https://yourusername.github.io"
+baseurl: "/FilipinoHub"
+
+# Build settings
+markdown: kramdown
+permalink: /:categories/:title/
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:categories/:title/
+
+# Exclude from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "FilipinoHub Team"
+
+# Categories
+categories:
+  - local-news
+  - world-news
+  - entertainment
+  - sports
+  - lifestyle
+  - stories
+  - editorial
+
+# Subcategories
+subcategories:
+  local-news:
+    - politics
+    - economy
+    - crime
+    - government
+    - community
+  entertainment:
+    - showbiz
+    - pageantry
+    - ppop
+    - movies-tv
+    - celebrities
+  sports:
+    - basketball
+    - football
+    - esports
+    - local-sports
+    - international-sports
+  lifestyle:
+    - health
+    - travel
+    - food
+    - fashion
+    - technology
+  stories:
+    - inspirational
+    - short-stories
+    - love-stories
+    - horror-stories
+    - real-life-stories
+  editorial:
+    - opinion
+    - analysis
+    - commentary
+    - featured-writers
+
+# Made with Bob
