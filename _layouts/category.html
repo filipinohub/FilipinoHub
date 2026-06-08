@@ -56,7 +56,28 @@ layout: default
             </article>
             {% endfor %}
         {% else %}
-            <p class="no-posts">No articles found in this category yet.</p>
+            <div class="no-posts-container">
+                <div class="no-posts-icon">
+                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="40" cy="40" r="35" stroke="#CBD5E0" stroke-width="3" fill="none"/>
+                        <path d="M40 25 L40 45 M40 55 L40 55.1" stroke="#CBD5E0" stroke-width="4" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h3 class="no-posts-title">No Articles Yet</h3>
+                <p class="no-posts-message">
+                    {% if page.subcategory %}
+                        We're working on bringing you great content in {{ page.subcategory | replace: '-', ' ' | capitalize }}. Check back soon!
+                    {% else %}
+                        We're working on bringing you great content in {{ page.title }}. Check back soon!
+                    {% endif %}
+                </p>
+                <div class="no-posts-actions">
+                    <a href="{{ '/' | relative_url }}" class="btn-secondary">Explore Homepage</a>
+                    {% if page.subcategory %}
+                    <a href="{{ page.url | relative_url | remove: page.subcategory | remove: '//' | append: '/' }}" class="btn-secondary">View All {{ page.title }}</a>
+                    {% endif %}
+                </div>
+            </div>
         {% endif %}
             </div>
         </div>

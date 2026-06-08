@@ -1,0 +1,188 @@
+---
+layout: default
+title: Page Not Found
+permalink: /404.html
+---
+
+<div class="error-page">
+    <div class="error-content">
+        <div class="error-icon">
+            <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="60" cy="60" r="50" stroke="#CE1126" stroke-width="4" fill="none"/>
+                <path d="M40 45 L80 75 M80 45 L40 75" stroke="#CE1126" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <h1>Oops! Page Not Found</h1>
+        <p class="error-message">The page you're looking for doesn't exist or has been moved.</p>
+        <p class="error-suggestion">Don't worry, you can explore our categories below or return to the homepage.</p>
+        
+        <div class="error-actions">
+            <a href="{{ '/' | relative_url }}" class="btn-primary">Go to Homepage</a>
+        </div>
+
+        <div class="error-categories">
+            <h2>Explore Our Categories</h2>
+            <div class="category-grid">
+                <a href="{{ '/entertainment/' | relative_url }}" class="category-link">
+                    <span class="category-icon">🎬</span>
+                    <span>Entertainment</span>
+                </a>
+                <a href="{{ '/music/' | relative_url }}" class="category-link">
+                    <span class="category-icon">🎵</span>
+                    <span>Music</span>
+                </a>
+                <a href="{{ '/sports/' | relative_url }}" class="category-link">
+                    <span class="category-icon">⚽</span>
+                    <span>Sports</span>
+                </a>
+                <a href="{{ '/lifestyle/' | relative_url }}" class="category-link">
+                    <span class="category-icon">✨</span>
+                    <span>Lifestyle</span>
+                </a>
+                <a href="{{ '/places/' | relative_url }}" class="category-link">
+                    <span class="category-icon">🏝️</span>
+                    <span>Places</span>
+                </a>
+                <a href="{{ '/stories/' | relative_url }}" class="category-link">
+                    <span class="category-icon">📖</span>
+                    <span>Stories</span>
+                </a>
+                <a href="{{ '/editorial/' | relative_url }}" class="category-link">
+                    <span class="category-icon">✍️</span>
+                    <span>Editorial</span>
+                </a>
+                <a href="{{ '/government-agencies/' | relative_url }}" class="category-link">
+                    <span class="category-icon">🏛️</span>
+                    <span>Government</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.error-page {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-2xl) 0;
+}
+
+.error-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.error-icon {
+    margin-bottom: var(--spacing-lg);
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+.error-content h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    letter-spacing: -1px;
+}
+
+.error-message {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.error-suggestion {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-xl);
+}
+
+.error-actions {
+    margin-bottom: var(--spacing-2xl);
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 16px 40px;
+    background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-blue) 100%);
+    color: white;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.error-categories {
+    background: var(--bg-white);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+}
+
+.error-categories h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.category-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-lg);
+    background: var(--bg-light);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.category-link:hover {
+    background: var(--bg-white);
+    border-color: var(--primary-red);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.category-icon {
+    font-size: 2.5rem;
+}
+
+@media (max-width: 768px) {
+    .error-content h1 {
+        font-size: 2rem;
+    }
+    
+    .error-message {
+        font-size: 1.1rem;
+    }
+    
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+</style>
