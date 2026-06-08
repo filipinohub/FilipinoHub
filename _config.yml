@@ -36,28 +36,29 @@ defaults:
 
 # Categories
 categories:
-  - local-news
-  - world-news
   - entertainment
+  - music
   - sports
   - lifestyle
+  - places
   - stories
   - editorial
+  - government-agencies
 
 # Subcategories
 subcategories:
-  local-news:
-    - politics
-    - economy
-    - crime
-    - government
-    - community
   entertainment:
     - showbiz
     - pageantry
     - ppop
     - movies-tv
     - celebrities
+  music:
+    - ppop
+    - opm
+    - concerts
+    - albums
+    - artists
   sports:
     - basketball
     - football
@@ -70,6 +71,12 @@ subcategories:
     - food
     - fashion
     - technology
+  places:
+    - tourist-spots
+    - hidden-gems
+    - travel-guides
+    - provinces
+    - cities
   stories:
     - inspirational
     - short-stories
@@ -81,5 +88,11 @@ subcategories:
     - analysis
     - commentary
     - featured-writers
+  government-agencies:
+    - national-agencies
+    - local-government
+    - public-services
+    - announcements
+    - programs
 
 # Made with Bob
