@@ -10,18 +10,23 @@ layout: default
         {% endif %}
     </header>
 
-    {% if page.subcategories %}
-    <nav class="subcategory-nav">
-        <ul>
-            <li><a href="{{ page.url | relative_url }}" class="{% if page.subcategory == nil %}active{% endif %}">All</a></li>
-            {% for subcat in page.subcategories %}
-            <li><a href="{{ page.url | append: subcat | append: '/' | relative_url }}">{{ subcat | replace: '-', ' ' | capitalize }}</a></li>
-            {% endfor %}
-        </ul>
-    </nav>
-    {% endif %}
+    <div class="category-content-wrapper">
+        {% if page.subcategories %}
+        <aside class="sidebar-left">
+            <nav class="subcategory-sidebar">
+                <h3>Subcategories</h3>
+                <ul>
+                    <li><a href="{{ page.url | relative_url }}" class="{% if page.subcategory == nil %}active{% endif %}">All {{ page.title }}</a></li>
+                    {% for subcat in page.subcategories %}
+                    <li><a href="{{ page.url | append: subcat | append: '/' | relative_url }}" class="{% if page.subcategory == subcat %}active{% endif %}">{{ subcat | replace: '-', ' ' | capitalize }}</a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </aside>
+        {% endif %}
 
-    <div class="post-grid">
+        <div class="category-main-content">
+            <div class="post-grid">
         {% assign category_slug = page.category %}
         {% if page.subcategory %}
             {% assign filtered_posts = site.posts | where: "category", category_slug | where: "subcategory", page.subcategory %}
@@ -53,5 +58,7 @@ layout: default
         {% else %}
             <p class="no-posts">No articles found in this category yet.</p>
         {% endif %}
+            </div>
+        </div>
     </div>
 </section>

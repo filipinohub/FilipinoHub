@@ -386,6 +386,72 @@ img {
     margin-bottom: 30px;
 }
 
+/* Category Content Wrapper with Sidebar */
+.category-content-wrapper {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.sidebar-left {
+    flex: 0 0 250px;
+    position: sticky;
+    top: 80px;
+    height: fit-content;
+}
+
+.subcategory-sidebar {
+    background-color: var(--light-gray);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.subcategory-sidebar h3 {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.subcategory-sidebar ul {
+    list-style: none;
+}
+
+.subcategory-sidebar li {
+    margin-bottom: 8px;
+}
+
+.subcategory-sidebar a {
+    display: block;
+    padding: 10px 15px;
+    background-color: var(--white);
+    border-radius: 6px;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.subcategory-sidebar a:hover {
+    background-color: #fef5f6;
+    border-left-color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+.subcategory-sidebar a.active {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-left-color: var(--secondary-color);
+}
+
+.category-main-content {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Old subcategory nav (kept for backward compatibility) */
 .subcategory-nav {
     margin-bottom: 30px;
     background-color: var(--light-gray);
@@ -747,6 +813,21 @@ img {
     .subcategory-nav a {
         display: block;
         text-align: center;
+    }
+
+    /* Sidebar responsive */
+    .category-content-wrapper {
+        flex-direction: column;
+    }
+
+    .sidebar-left {
+        position: static;
+        flex: 1;
+        width: 100%;
+    }
+
+    .subcategory-sidebar {
+        margin-bottom: 20px;
     }
 }
 
