@@ -11,33 +11,297 @@ title: Home
     </div>
 </section>
 
-<!-- Featured Article -->
-{% assign featured_post = site.posts.first %}
-{% if featured_post %}
-<section class="featured-section">
-    <h2>Featured Article</h2>
-    <article class="featured-article">
-        {% if featured_post.image %}
-        <a href="{{ featured_post.url | relative_url }}" class="featured-image">
-            <img src="{{ featured_post.image | relative_url }}" alt="{{ featured_post.title }}">
-        </a>
-        {% endif %}
-        <div class="featured-content">
-            <span class="featured-category">{{ featured_post.category | replace: '-', ' ' | capitalize }}</span>
-            <h3><a href="{{ featured_post.url | relative_url }}">{{ featured_post.title }}</a></h3>
-            <p class="featured-excerpt">{{ featured_post.excerpt | strip_html | truncatewords: 30 }}</p>
-            <div class="featured-meta">
-                <span class="featured-date">{{ featured_post.date | date: "%B %d, %Y" }}</span>
-                <a href="{{ featured_post.url | relative_url }}" class="read-more">Read More →</a>
-            </div>
-        </div>
-    </article>
-</section>
-{% endif %}
+<!-- Category Tiles Grid -->
+<section class="category-tiles-section">
+    <h2 class="section-title">Explore by Category</h2>
+    <div class="category-tiles-grid">
+        
+        <!-- Entertainment Tile -->
+        {% assign entertainment_latest = site.posts | where: "category", "entertainment" | first %}
+        <article class="category-tile">
+            <a href="{{ '/entertainment/' | relative_url }}" class="tile-link">
+                <div class="tile-image">
+                    {% if entertainment_latest.image %}
+                    <img src="{{ entertainment_latest.image | relative_url }}" alt="Entertainment">
+                    {% else %}
+                    <div class="tile-placeholder" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                    {% endif %}
+                    <div class="tile-overlay">
+                        <h3 class="tile-category-name">Entertainment</h3>
+                    </div>
+                </div>
+                {% if entertainment_latest %}
+                <div class="tile-content">
+                    <span class="tile-label">Latest</span>
+                    <h4 class="tile-post-title">{{ entertainment_latest.title }}</h4>
+                    <span class="tile-date">{{ entertainment_latest.date | date: "%B %d, %Y" }}</span>
+                </div>
+                {% else %}
+                <div class="tile-content">
+                    <p class="tile-no-posts">No posts yet</p>
+                </div>
+                {% endif %}
+            </a>
+        </article>
 
-<!-- Latest Posts -->
-<section class="latest-posts">
-    <h2>Latest Articles</h2>
+        <!-- Music Tile -->
+        {% assign music_latest = site.posts | where: "category", "music" | first %}
+        <article class="category-tile">
+            <a href="{{ '/music/' | relative_url }}" class="tile-link">
+                <div class="tile-image">
+                    {% if music_latest.image %}
+                    <img src="{{ music_latest.image | relative_url }}" alt="Music">
+                    {% else %}
+                    <div class="tile-placeholder" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                    {% endif %}
+                    <div class="tile-overlay">
+                        <h3 class="tile-category-name">Music</h3>
+                    </div>
+                </div>
+                {% if music_latest %}
+                <div class="tile-content">
+                    <span class="tile-label">Latest</span>
+                    <h4 class="tile-post-title">{{ music_latest.title }}</h4>
+                    <span class="tile-date">{{ music_latest.date | date: "%B %d, %Y" }}</span>
+                </div>
+                {% else %}
+                <div class="tile-content">
+                    <p class="tile-no-posts">No posts yet</p>
+                </div>
+                {% endif %}
+            </a>
+        </article>
+
+        <!-- Sports Tile -->
+        {% assign sports_latest = site.posts | where: "category", "sports" | first %}
+        <article class="category-tile">
+            <a href="{{ '/sports/' | relative_url }}" class="tile-link">
+                <div class="tile-image">
+                    {% if sports_latest.image %}
+                    <img src="{{ sports_latest.image | relative_url }}" alt="Sports">
+                    {% else %}
+                    <div class="tile-placeholder" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                    {% endif %}
+                    <div class="tile-overlay">
+                        <h3 class="tile-category-name">Sports</h3>
+                    </div>
+                </div>
+                {% if sports_latest %}
+                <div class="tile-content">
+                    <span class="tile-label">Latest</span>
+                    <h4 class="tile-post-title">{{ sports_latest.title }}</h4>
+                    <span class="tile-date">{{ sports_latest.date | date: "%B %d, %Y" }}</span>
+                </div>
+                {% else %}
+                <div class="tile-content">
+                    <p class="tile-no-posts">No posts yet</p>
+                </div>
+                {% endif %}
+            </a>
+        </article>
+
+        <!-- Lifestyle Tile -->
+        {% assign lifestyle_latest = site.posts | where: "category", "lifestyle" | first %}
+        <article class="category-tile">
+            <a href="{{ '/lifestyle/' | relative_url }}" class="tile-link">
+                <div class="tile-image">
+                    {% if lifestyle_latest.image %}
+                    <img src="{{ lifestyle_latest.image | relative_url }}" alt="Lifestyle">
+                    {% else %}
+                    <div class="tile-placeholder" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"></div>
+                    {% endif %}
+                    <div class="tile-overlay">
+                        <h3 class="tile-category-name">Lifestyle</h3>
+                    </div>
+                </div>
+                {% if lifestyle_latest %}
+                <div class="tile-content">
+                    <span class="tile-label">Latest</span>
+                    <h4 class="tile-post-title">{{ lifestyle_latest.title }}</h4>
+                    <span class="tile-date">{{ lifestyle_latest.date | date: "%B %d, %Y" }}</span>
+                </div>
+                {% else %}
+                <div class="tile-content">
+                    <p class="tile-no-posts">No posts yet</p>
+                </div>
+                {% endif %}
+            </a>
+        </article>
+
+        <!-- Places Tile -->
+        {% assign places_latest = site.posts | where: "category", "places" | first %}
+        <article class="category-tile">
+            <a href="{{ '/places/' | relative_url }}" class="tile-link">
+                <div class="tile-image">
+                    {% if places_latest.image %}
+                    <img src="{{ places_latest.image | relative_url }}" alt="Places">
+                    {% else %}
+                    <div class="tile-placeholder" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);"></div>
+                    {% endif %}
+                    <div class="tile-overlay">
+                        <h3 class="tile-category-name">Places</h3>
+                    </div>
+                </div>
+                {% if places_latest %}
+                <div class="tile-content">
+                    <span class="tile-label">Latest</span>
+                    <h4 class="tile-post-title">{{ places_latest.title }}</h4>
+                    <span class="tile-date">{{ places_latest.date | date: "%B %d, %Y" }}</span>
+                </div>
+                {% else %}
+                <div class="tile-content">
+                    <p class="tile-no-posts">No posts yet</p>
+                </div>
+                {% endif %}
+            </a>
+        </article>
+
+        <!-- Stories Tile -->
+        {% assign stories_latest = site.posts | where: "category", "stories" | first %}
+        <article class="category-tile">
+            <a href="{{ '/stories/' | relative_url }}" class="tile-link">
+                <div class="tile-image">
+                    {% if stories_latest.image %}
+                    <img src="{{ stories_latest.image | relative_url }}" alt="Stories">
+                    {% else %}
+                    <div class="tile-placeholder" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);"></div>
+                    {% endif %}
+                    <div class="tile-overlay">
+                        <h3 class="tile-category-name">Stories</h3>
+                    </div>
+                </div>
+                {% if stories_latest %}
+                <div class="tile-content">
+                    <span class="tile-label">Latest</span>
+                    <h4 class="tile-post-title">{{ stories_latest.title }}</h4>
+                    <span class="tile-date">{{ stories_latest.date | date: "%B %d, %Y" }}</span>
+                </div>
+                {% else %}
+                <div class="tile-content">
+                    <p class="tile-no-posts">No posts yet</p>
+                </div>
+                {% endif %}
+            </a>
+        </article>
+
+        <!-- Editorial Tile -->
+        {% assign editorial_latest = site.posts | where: "category", "editorial" | first %}
+        <article class="category-tile">
+            <a href="{{ '/editorial/' | relative_url }}" class="tile-link">
+                <div class="tile-image">
+                    {% if editorial_latest.image %}
+                    <img src="{{ editorial_latest.image | relative_url }}" alt="Editorial">
+                    {% else %}
+                    <div class="tile-placeholder" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);"></div>
+                    {% endif %}
+                    <div class="tile-overlay">
+                        <h3 class="tile-category-name">Editorial</h3>
+                    </div>
+                </div>
+                {% if editorial_latest %}
+                <div class="tile-content">
+                    <span class="tile-label">Latest</span>
+                    <h4 class="tile-post-title">{{ editorial_latest.title }}</h4>
+                    <span class="tile-date">{{ editorial_latest.date | date: "%B %d, %Y" }}</span>
+                </div>
+                {% else %}
+                <div class="tile-content">
+                    <p class="tile-no-posts">No posts yet</p>
+                </div>
+                {% endif %}
+            </a>
+        </article>
+
+        <!-- Government Agencies Tile -->
+        {% assign government_latest = site.posts | where: "category", "government-agencies" | first %}
+        <article class="category-tile">
+            <a href="{{ '/government-agencies/' | relative_url }}" class="tile-link">
+                <div class="tile-image">
+                    {% if government_latest.image %}
+                    <img src="{{ government_latest.image | relative_url }}" alt="Government Agencies">
+                    {% else %}
+                    <div class="tile-placeholder" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);"></div>
+                    {% endif %}
+                    <div class="tile-overlay">
+                        <h3 class="tile-category-name">Government Agencies</h3>
+                    </div>
+                </div>
+                {% if government_latest %}
+                <div class="tile-content">
+                    <span class="tile-label">Latest</span>
+                    <h4 class="tile-post-title">{{ government_latest.title }}</h4>
+                    <span class="tile-date">{{ government_latest.date | date: "%B %d, %Y" }}</span>
+                </div>
+                {% else %}
+                <div class="tile-content">
+                    <p class="tile-no-posts">No posts yet</p>
+                </div>
+                {% endif %}
+            </a>
+        </article>
+
+        <!-- Local News Tile -->
+        {% assign local_news_latest = site.posts | where: "category", "local-news" | first %}
+        <article class="category-tile">
+            <a href="{{ '/local-news/' | relative_url }}" class="tile-link">
+                <div class="tile-image">
+                    {% if local_news_latest.image %}
+                    <img src="{{ local_news_latest.image | relative_url }}" alt="Local News">
+                    {% else %}
+                    <div class="tile-placeholder" style="background: linear-gradient(135deg, #ff6e7f 0%, #bfe9ff 100%);"></div>
+                    {% endif %}
+                    <div class="tile-overlay">
+                        <h3 class="tile-category-name">Local News</h3>
+                    </div>
+                </div>
+                {% if local_news_latest %}
+                <div class="tile-content">
+                    <span class="tile-label">Latest</span>
+                    <h4 class="tile-post-title">{{ local_news_latest.title }}</h4>
+                    <span class="tile-date">{{ local_news_latest.date | date: "%B %d, %Y" }}</span>
+                </div>
+                {% else %}
+                <div class="tile-content">
+                    <p class="tile-no-posts">No posts yet</p>
+                </div>
+                {% endif %}
+            </a>
+        </article>
+
+        <!-- World News Tile -->
+        {% assign world_news_latest = site.posts | where: "category", "world-news" | first %}
+        <article class="category-tile">
+            <a href="{{ '/world-news/' | relative_url }}" class="tile-link">
+                <div class="tile-image">
+                    {% if world_news_latest.image %}
+                    <img src="{{ world_news_latest.image | relative_url }}" alt="World News">
+                    {% else %}
+                    <div class="tile-placeholder" style="background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);"></div>
+                    {% endif %}
+                    <div class="tile-overlay">
+                        <h3 class="tile-category-name">World News</h3>
+                    </div>
+                </div>
+                {% if world_news_latest %}
+                <div class="tile-content">
+                    <span class="tile-label">Latest</span>
+                    <h4 class="tile-post-title">{{ world_news_latest.title }}</h4>
+                    <span class="tile-date">{{ world_news_latest.date | date: "%B %d, %Y" }}</span>
+                </div>
+                {% else %}
+                <div class="tile-content">
+                    <p class="tile-no-posts">No posts yet</p>
+                </div>
+                {% endif %}
+            </a>
+        </article>
+
+    </div>
+</section>
+
+<!-- Recent Posts Section -->
+<section class="recent-posts-section">
+    <h2 class="section-title">Recent Articles</h2>
     <div class="post-grid">
         {% for post in site.posts limit:6 %}
         <article class="post-card">
@@ -54,209 +318,6 @@ title: Home
             </div>
         </article>
         {% endfor %}
-    </div>
-</section>
-
-<!-- Category Sections -->
-<section class="category-sections">
-    <!-- Entertainment -->
-    <div class="category-section">
-        <div class="category-header">
-            <h2>Entertainment</h2>
-            <a href="{{ '/entertainment/' | relative_url }}" class="view-all">View All →</a>
-        </div>
-        <div class="post-grid">
-            {% assign entertainment_posts = site.posts | where: "category", "entertainment" | limit: 3 %}
-            {% for post in entertainment_posts %}
-            <article class="post-card">
-                {% if post.image %}
-                <a href="{{ post.url | relative_url }}" class="post-card-image">
-                    <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
-                </a>
-                {% endif %}
-                <div class="post-card-content">
-                    <span class="post-card-category">{{ post.subcategory | replace: '-', ' ' | capitalize }}</span>
-                    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-                    <span class="post-card-date">{{ post.date | date: "%B %d, %Y" }}</span>
-                </div>
-            </article>
-            {% endfor %}
-        </div>
-    </div>
-
-    <!-- Music -->
-    <div class="category-section">
-        <div class="category-header">
-            <h2>Music</h2>
-            <a href="{{ '/music/' | relative_url }}" class="view-all">View All →</a>
-        </div>
-        <div class="post-grid">
-            {% assign music_posts = site.posts | where: "category", "music" | limit: 3 %}
-            {% for post in music_posts %}
-            <article class="post-card">
-                {% if post.image %}
-                <a href="{{ post.url | relative_url }}" class="post-card-image">
-                    <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
-                </a>
-                {% endif %}
-                <div class="post-card-content">
-                    <span class="post-card-category">{{ post.subcategory | replace: '-', ' ' | capitalize }}</span>
-                    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-                    <span class="post-card-date">{{ post.date | date: "%B %d, %Y" }}</span>
-                </div>
-            </article>
-            {% endfor %}
-        </div>
-    </div>
-
-    <!-- Sports -->
-    <div class="category-section">
-        <div class="category-header">
-            <h2>Sports</h2>
-            <a href="{{ '/sports/' | relative_url }}" class="view-all">View All →</a>
-        </div>
-        <div class="post-grid">
-            {% assign sports_posts = site.posts | where: "category", "sports" | limit: 3 %}
-            {% for post in sports_posts %}
-            <article class="post-card">
-                {% if post.image %}
-                <a href="{{ post.url | relative_url }}" class="post-card-image">
-                    <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
-                </a>
-                {% endif %}
-                <div class="post-card-content">
-                    <span class="post-card-category">{{ post.subcategory | replace: '-', ' ' | capitalize }}</span>
-                    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-                    <span class="post-card-date">{{ post.date | date: "%B %d, %Y" }}</span>
-                </div>
-            </article>
-            {% endfor %}
-        </div>
-    </div>
-
-    <!-- Lifestyle -->
-    <div class="category-section">
-        <div class="category-header">
-            <h2>Lifestyle</h2>
-            <a href="{{ '/lifestyle/' | relative_url }}" class="view-all">View All →</a>
-        </div>
-        <div class="post-grid">
-            {% assign lifestyle_posts = site.posts | where: "category", "lifestyle" | limit: 3 %}
-            {% for post in lifestyle_posts %}
-            <article class="post-card">
-                {% if post.image %}
-                <a href="{{ post.url | relative_url }}" class="post-card-image">
-                    <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
-                </a>
-                {% endif %}
-                <div class="post-card-content">
-                    <span class="post-card-category">{{ post.subcategory | replace: '-', ' ' | capitalize }}</span>
-                    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-                    <span class="post-card-date">{{ post.date | date: "%B %d, %Y" }}</span>
-                </div>
-            </article>
-            {% endfor %}
-        </div>
-    </div>
-
-    <!-- Places -->
-    <div class="category-section">
-        <div class="category-header">
-            <h2>Places</h2>
-            <a href="{{ '/places/' | relative_url }}" class="view-all">View All →</a>
-        </div>
-        <div class="post-grid">
-            {% assign places_posts = site.posts | where: "category", "places" | limit: 3 %}
-            {% for post in places_posts %}
-            <article class="post-card">
-                {% if post.image %}
-                <a href="{{ post.url | relative_url }}" class="post-card-image">
-                    <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
-                </a>
-                {% endif %}
-                <div class="post-card-content">
-                    <span class="post-card-category">{{ post.subcategory | replace: '-', ' ' | capitalize }}</span>
-                    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-                    <span class="post-card-date">{{ post.date | date: "%B %d, %Y" }}</span>
-                </div>
-            </article>
-            {% endfor %}
-        </div>
-    </div>
-
-    <!-- Stories -->
-    <div class="category-section">
-        <div class="category-header">
-            <h2>Stories</h2>
-            <a href="{{ '/stories/' | relative_url }}" class="view-all">View All →</a>
-        </div>
-        <div class="post-grid">
-            {% assign stories_posts = site.posts | where: "category", "stories" | limit: 3 %}
-            {% for post in stories_posts %}
-            <article class="post-card">
-                {% if post.image %}
-                <a href="{{ post.url | relative_url }}" class="post-card-image">
-                    <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
-                </a>
-                {% endif %}
-                <div class="post-card-content">
-                    <span class="post-card-category">{{ post.subcategory | replace: '-', ' ' | capitalize }}</span>
-                    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-                    <span class="post-card-date">{{ post.date | date: "%B %d, %Y" }}</span>
-                </div>
-            </article>
-            {% endfor %}
-        </div>
-    </div>
-
-    <!-- Editorial -->
-    <div class="category-section">
-        <div class="category-header">
-            <h2>Editorial</h2>
-            <a href="{{ '/editorial/' | relative_url }}" class="view-all">View All →</a>
-        </div>
-        <div class="post-grid">
-            {% assign editorial_posts = site.posts | where: "category", "editorial" | limit: 3 %}
-            {% for post in editorial_posts %}
-            <article class="post-card">
-                {% if post.image %}
-                <a href="{{ post.url | relative_url }}" class="post-card-image">
-                    <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
-                </a>
-                {% endif %}
-                <div class="post-card-content">
-                    <span class="post-card-category">{{ post.subcategory | replace: '-', ' ' | capitalize }}</span>
-                    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-                    <span class="post-card-date">{{ post.date | date: "%B %d, %Y" }}</span>
-                </div>
-            </article>
-            {% endfor %}
-        </div>
-    </div>
-
-    <!-- Government Agencies -->
-    <div class="category-section">
-        <div class="category-header">
-            <h2>Government Agencies</h2>
-            <a href="{{ '/government-agencies/' | relative_url }}" class="view-all">View All →</a>
-        </div>
-        <div class="post-grid">
-            {% assign government_posts = site.posts | where: "category", "government-agencies" | limit: 3 %}
-            {% for post in government_posts %}
-            <article class="post-card">
-                {% if post.image %}
-                <a href="{{ post.url | relative_url }}" class="post-card-image">
-                    <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
-                </a>
-                {% endif %}
-                <div class="post-card-content">
-                    <span class="post-card-category">{{ post.subcategory | replace: '-', ' ' | capitalize }}</span>
-                    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-                    <span class="post-card-date">{{ post.date | date: "%B %d, %Y" }}</span>
-                </div>
-            </article>
-            {% endfor %}
-        </div>
     </div>
 </section>
 
