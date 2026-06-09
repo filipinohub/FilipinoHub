@@ -19,9 +19,17 @@ layout: default
         {% endif %}
     </header>
 
-    <!-- Ad Placeholder: Below Title -->
+    <!-- Ad: Below Title (728x90) -->
     <div class="ad-banner ad-below-title">
-        <div class="ad-placeholder">Advertisement - 728x90</div>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="horizontal"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
     </div>
 
     {% if page.image %}
@@ -34,9 +42,16 @@ layout: default
         {{ content }}
     </div>
 
-    <!-- Ad Placeholder: In-Content -->
+    <!-- Ad: In-Content (336x280) -->
     <div class="ad-banner ad-in-content">
-        <div class="ad-placeholder">Advertisement - 336x280</div>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="rectangle"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
     </div>
 
     <footer class="post-footer">

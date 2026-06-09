@@ -1,0 +1,6 @@
+# Google AdSense
+google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+
+# Replace pub-XXXXXXXXXXXXXXXX with your actual Google AdSense Publisher ID
+# This file helps prevent ad fraud and ensures proper ad revenue attribution
+# Place this file in the root directory of your website
