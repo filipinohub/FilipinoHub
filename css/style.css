@@ -56,13 +56,7 @@ body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.7;
     color: var(--text-primary);
-    background: linear-gradient(135deg,
-        #FFE5EC 0%,    /* Light pink */
-        #E0F7E9 33%,   /* Light green */
-        #E0F2FE 66%,   /* Light blue */
-        #FFE5EC 100%   /* Back to light pink */
-    );
-    background-attachment: fixed;
+    background-color: #FFB6C1;  /* Pink background */
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -95,7 +89,7 @@ img {
    ============================================ */
 
 .site-header {
-    background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-light) 100%);
+    background: #ADD8E6;  /* Light blue background */
     border-bottom: 1px solid rgba(0,0,0,0.06);
     position: sticky;
     top: 0;
