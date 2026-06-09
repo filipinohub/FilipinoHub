@@ -19,6 +19,17 @@ exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
+  - CONTENT-GUIDE.md
+  - DEPLOYMENT.md
+  - MONETIZATION-SETUP.md
+  - .DS_Store
+
+# Include files
+include:
+  - about.html
+  - contact.html
+  - privacy.html
+  - ads.txt
 
 # Plugins
 plugins:
