@@ -232,61 +232,6 @@ title: Home
             </a>
         </article>
 
-        <!-- Local News Tile -->
-        {% assign local_news_latest = site.posts | where: "category", "local-news" | first %}
-        <article class="category-tile">
-            <a href="{{ '/local-news/' | relative_url }}" class="tile-link">
-                <div class="tile-image">
-                    {% if local_news_latest.image %}
-                    <img src="{{ local_news_latest.image | relative_url }}" alt="Local News">
-                    {% else %}
-                    <div class="tile-placeholder" style="background: linear-gradient(135deg, #ff6e7f 0%, #bfe9ff 100%);"></div>
-                    {% endif %}
-                    <div class="tile-overlay">
-                        <h3 class="tile-category-name">Local News</h3>
-                    </div>
-                </div>
-                {% if local_news_latest %}
-                <div class="tile-content">
-                    <span class="tile-label">Latest</span>
-                    <h4 class="tile-post-title">{{ local_news_latest.title }}</h4>
-                    <span class="tile-date">{{ local_news_latest.date | date: "%B %d, %Y" }}</span>
-                </div>
-                {% else %}
-                <div class="tile-content">
-                    <p class="tile-no-posts">No posts yet</p>
-                </div>
-                {% endif %}
-            </a>
-        </article>
-
-        <!-- World News Tile -->
-        {% assign world_news_latest = site.posts | where: "category", "world-news" | first %}
-        <article class="category-tile">
-            <a href="{{ '/world-news/' | relative_url }}" class="tile-link">
-                <div class="tile-image">
-                    {% if world_news_latest.image %}
-                    <img src="{{ world_news_latest.image | relative_url }}" alt="World News">
-                    {% else %}
-                    <div class="tile-placeholder" style="background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);"></div>
-                    {% endif %}
-                    <div class="tile-overlay">
-                        <h3 class="tile-category-name">World News</h3>
-                    </div>
-                </div>
-                {% if world_news_latest %}
-                <div class="tile-content">
-                    <span class="tile-label">Latest</span>
-                    <h4 class="tile-post-title">{{ world_news_latest.title }}</h4>
-                    <span class="tile-date">{{ world_news_latest.date | date: "%B %d, %Y" }}</span>
-                </div>
-                {% else %}
-                <div class="tile-content">
-                    <p class="tile-no-posts">No posts yet</p>
-                </div>
-                {% endif %}
-            </a>
-        </article>
 
     </div>
 </section>
