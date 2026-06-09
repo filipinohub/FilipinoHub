@@ -2,8 +2,10 @@
 layout: post
 title: "Mano Po: The Filipino Gesture of Respect and Tradition"
 date: 2026-06-09
-categories: [lifestyle, culture]
+category: lifestyle
+subcategory: culture
 author: FilipinoHub Editorial Team
+image: "/assets/images/mano-po.jpg"
 excerpt: "More than just a gesture, Mano Po is a symbol of humility, gratitude, and strong family values that continue to define Filipino identity."
 ---
 
