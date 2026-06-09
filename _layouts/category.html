@@ -3,16 +3,6 @@ layout: default
 ---
 
 <section class="category-page">
-    {% if page.subcategory %}
-    <nav class="breadcrumb">
-        <a href="{{ '/' | relative_url }}">Home</a>
-        <span class="breadcrumb-separator">›</span>
-        <a href="{{ page.url | relative_url | remove: page.subcategory | remove: '//' | append: '/' }}">{{ page.title }}</a>
-        <span class="breadcrumb-separator">›</span>
-        <span class="breadcrumb-current">{{ page.subcategory | replace: '-', ' ' | capitalize }}</span>
-    </nav>
-    {% endif %}
-    
     <header class="category-header">
         <h1>{{ page.title }}{% if page.subcategory %} / {{ page.subcategory | replace: '-', ' ' | capitalize }}{% endif %}</h1>
         {% if page.description %}
