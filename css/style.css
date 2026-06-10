@@ -178,56 +178,82 @@ img {
     width: 60%;
     height: 2px;
     background: linear-gradient(90deg, var(--primary-red), var(--primary-blue));
-/* Header Search Box */
+/* Header Search Box - Smooth Modern Design */
 .header-search {
     display: flex;
     align-items: center;
-    background: var(--bg-light);
-    border-radius: var(--radius-md);
-    padding: 4px;
-    gap: 4px;
-    border: 1px solid #e2e8f0;
-    transition: all 0.3s ease;
-    min-width: 200px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
+    border-radius: 50px;
+    padding: 6px 8px 6px 18px;
+    gap: 8px;
+    border: 2px solid transparent;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 220px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(10px);
+}
+
+.header-search:hover {
+    border-color: rgba(0, 56, 168, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 56, 168, 0.12);
+    transform: translateY(-1px);
 }
 
 .header-search:focus-within {
-    background: var(--bg-white);
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
     border-color: var(--primary-blue);
-    box-shadow: 0 0 0 3px rgba(0, 56, 168, 0.1);
+    box-shadow: 0 6px 20px rgba(0, 56, 168, 0.15), 0 0 0 4px rgba(0, 56, 168, 0.08);
+    transform: translateY(-2px);
 }
 
 .header-search input {
     flex: 1;
     border: none;
     background: transparent;
-    padding: 8px 12px;
+    padding: 10px 4px;
     font-size: 0.9rem;
     color: var(--text-primary);
     outline: none;
     min-width: 0;
+    font-weight: 500;
 }
 
 .header-search input::placeholder {
     color: var(--text-light);
+    font-weight: 400;
+    opacity: 0.7;
 }
 
 .header-search button {
-    background: var(--primary-blue);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #0052cc 100%);
     color: white;
     border: none;
-    padding: 8px 12px;
-    border-radius: var(--radius-sm);
+    padding: 10px;
+    border-radius: 50%;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(0, 56, 168, 0.25);
+    width: 38px;
+    height: 38px;
 }
 
 .header-search button:hover {
-    background: var(--primary-red);
-    transform: scale(1.05);
+    background: linear-gradient(135deg, var(--primary-red) 0%, #a01020 100%);
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 4px 12px rgba(196, 30, 58, 0.35);
+}
+
+.header-search button:active {
+    transform: scale(0.95);
+}
+
+.header-search button svg {
+    display: block;
+    width: 18px;
+    height: 18px;
 }
 
 /* Search Results Section */
