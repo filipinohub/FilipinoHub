@@ -10,7 +10,99 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Search Functionality
+    // Header Search Functionality
+    const headerSearchButton = document.getElementById('header-search-button');
+    const headerSearchInput = document.getElementById('header-search-input');
+
+    if (headerSearchButton && headerSearchInput) {
+        headerSearchButton.addEventListener('click', function() {
+            performHeaderSearch();
+        });
+        headerSearchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performHeaderSearch();
+            }
+        });
+    }
+
+    function performHeaderSearch() {
+        const query = headerSearchInput.value.toLowerCase().trim();
+        
+        if (query.length < 2) {
+            alert('Please enter at least 2 characters to search');
+            return;
+        }
+
+        // Get all posts data from the page
+        const posts = getAllPosts();
+        const results = posts.filter(post => {
+            return post.title.toLowerCase().includes(query) ||
+                   post.excerpt.toLowerCase().includes(query) ||
+                   post.category.toLowerCase().includes(query);
+        });
+
+        displayHeaderSearchResults(results, query);
+    }
+
+    function displayHeaderSearchResults(results, query) {
+        // Create or get results section
+        let resultsSection = document.getElementById('header-search-results');
+        
+        if (!resultsSection) {
+            resultsSection = document.createElement('section');
+            resultsSection.id = 'header-search-results';
+            resultsSection.className = 'search-results-section';
+            
+            const mainContent = document.querySelector('.site-content .container');
+            if (mainContent) {
+                mainContent.insertBefore(resultsSection, mainContent.firstChild);
+            }
+        }
+
+        resultsSection.style.display = 'block';
+        resultsSection.scrollIntoView({ behavior: 'smooth' });
+
+        if (results.length === 0) {
+            resultsSection.innerHTML = `
+                <div class="search-results-header">
+                    <h2>Search Results</h2>
+                    <p class="no-posts">No results found for "${query}"</p>
+                </div>
+            `;
+            return;
+        }
+
+        let html = `
+            <div class="search-results-header">
+                <h2>Search Results</h2>
+                <p style="margin-bottom: 20px; color: #666;">Found ${results.length} result${results.length > 1 ? 's' : ''} for "${query}"</p>
+            </div>
+            <div class="post-grid">
+        `;
+        
+        results.forEach(post => {
+            html += `
+                <article class="post-card">
+                    ${post.image ? `
+                        <a href="${post.url}" class="post-card-image">
+                            <img src="${post.image}" alt="${post.title}">
+                        </a>
+                    ` : ''}
+                    <div class="post-card-content">
+                        <span class="post-card-category">${post.category}</span>
+                        <h3><a href="${post.url}">${post.title}</a></h3>
+                        ${post.excerpt ? `<p class="post-card-excerpt">${post.excerpt}</p>` : ''}
+                        ${post.date ? `<span class="post-card-date">${post.date}</span>` : ''}
+                    </div>
+                </article>
+            `;
+        });
+        
+        html += '</div>';
+        resultsSection.innerHTML = html;
+    }
+
+    // Original Search Functionality (for hero section if exists)
     const searchButton = document.getElementById('search-button');
     const searchInput = document.getElementById('search-input');
     const searchResults = document.getElementById('search-results');

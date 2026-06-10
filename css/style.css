@@ -140,6 +140,12 @@ img {
     border-radius: 2px;
 }
 
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
 .main-nav ul {
     display: flex;
     list-style: none;
@@ -172,6 +178,82 @@ img {
     width: 60%;
     height: 2px;
     background: linear-gradient(90deg, var(--primary-red), var(--primary-blue));
+/* Header Search Box */
+.header-search {
+    display: flex;
+    align-items: center;
+    background: var(--bg-light);
+    border-radius: var(--radius-md);
+    padding: 4px;
+    gap: 4px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    min-width: 200px;
+}
+
+.header-search:focus-within {
+    background: var(--bg-white);
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(0, 56, 168, 0.1);
+}
+
+.header-search input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    outline: none;
+    min-width: 0;
+}
+
+.header-search input::placeholder {
+    color: var(--text-light);
+}
+
+.header-search button {
+    background: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.header-search button:hover {
+    background: var(--primary-red);
+    transform: scale(1.05);
+}
+
+/* Search Results Section */
+.search-results-section {
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.search-results-header {
+    margin-bottom: var(--spacing-md);
+}
+
+.search-results-header h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.header-search button svg {
+    display: block;
+}
+
     transition: transform 0.3s ease;
     border-radius: 2px;
 }
@@ -1236,10 +1318,11 @@ img {
         background: var(--bg-white);
         box-shadow: var(--shadow-lg);
         border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+        flex-direction: column;
     }
 
     .main-nav.active {
-        display: block;
+        display: flex;
     }
 
     .main-nav ul {
@@ -1255,6 +1338,11 @@ img {
     .main-nav a {
         display: block;
         padding: var(--spacing-md);
+    }
+
+    .header-search {
+        margin: var(--spacing-sm);
+        min-width: auto;
     }
 
     .hero-section h2 {
